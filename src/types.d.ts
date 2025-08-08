@@ -10,6 +10,15 @@ export type Comic = {
                     path: string
                     extension: string
                 }[]
+            // textObjects: {
+            //     text: string
+            // }[]
         }[]
+        total: number
     }
+}
+
+export type PaginationProps = {
+    limit: number
+    offSet: number
 }

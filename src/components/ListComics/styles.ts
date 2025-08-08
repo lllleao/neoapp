@@ -1,10 +1,8 @@
 import styled from 'styled-components'
+import { ButtonContainer } from '../Button/styles'
 
 export const ListComicsContainer = styled.section`
     padding-top: 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     .comics-title {
         text-align: center;
         margin-bottom: 2rem;
@@ -15,5 +13,19 @@ export const ListComicsContainer = styled.section`
             1px -1px 0 #000,
             -1px 1px 0 #000,
             1px 1px 0 #000;
+    }
+
+    .container {
+        .buttons-page {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+`
+export const ButtonPage = styled(ButtonContainer)`
+    display: inline-block;
+    width: auto;
+    &.disabled {
+        background-color: gray;
     }
 `

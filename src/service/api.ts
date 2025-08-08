@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import md5 from 'blueimp-md5'
-import type { Comic } from '../types'
+import type { Comic, PaginationProps } from '../types'
 const publicKey = import.meta.env.VITE_MARVEL_PUBLIC_KEY
 const privateKey = import.meta.env.VITE_MARVEL_PRIVATE_KEY
 
@@ -14,12 +14,12 @@ const api = createApi({
         baseUrl: 'https://gateway.marvel.com/v1/public/'
     }),
     endpoints: (builder) => ({
-        getComicsToHero: builder.query<Comic, void>({
-            query: () => {
+        getComicsToHero: builder.query<Comic, PaginationProps>({
+            query: ({limit,offSet}) => {
                 const ts = Date.now().toString()
                 const hash = generateHash(ts, privateKey, publicKey)
 
-                return `comics?ts=${ts}&apikey=${publicKey}&hash=${hash}`
+                return `comics?limit=${limit}&offset=${offSet}&ts=${ts}&apikey=${publicKey}&hash=${hash}`
             }
         })
     })

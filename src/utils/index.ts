@@ -5,3 +5,7 @@ export const constructLink = (
     const { extension } = images[0]
     return path + '.' + extension
 }
+
+const nextPage = () => {
+    
+}

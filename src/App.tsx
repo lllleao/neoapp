@@ -4,6 +4,7 @@ import GlobalStyle from './styles'
 import Rotas from './routes'
 import { Provider } from 'react-redux'
 import store from './store'
+import Footer from './pages/Footer'
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
                 <GlobalStyle />
                 <Header />
                 <Rotas />
+                <Footer />
             </BrowserRouter>
         </Provider>
     )
