@@ -4,7 +4,7 @@ import GlobalStyle from './styles'
 import Rotas from './routes'
 import { Provider } from 'react-redux'
 import store from './store'
-import Footer from './pages/Footer'
+import Footer from './components/Footer'
 
 function App() {
     return (

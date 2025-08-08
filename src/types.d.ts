@@ -10,9 +10,9 @@ export type Comic = {
                     path: string
                     extension: string
                 }[]
-            // textObjects: {
-            //     text: string
-            // }[]
+            textObjects: {
+                text: string
+            }[]
         }[]
         total: number
     }

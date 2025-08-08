@@ -4,6 +4,8 @@ export const ButtonContainer = styled.button`
     display: block;
     width: 100%;
     background-color: #117f11;
+    text-decoration: none;
+    text-align: center;
     padding: 0.4rem 0.7rem;
     font-size: 1rem;
     border: none;

@@ -1,7 +1,16 @@
-import { ButtonContainer } from "./styles"
+import { Link } from 'react-router-dom'
+import { ButtonContainer } from './styles'
 
-const Button = () => {
-    return <ButtonContainer>COMPRE</ButtonContainer>
+type ButtonProps = {
+    id: number
+}
+
+const Button = ({ id }: ButtonProps) => {
+    return (
+        <ButtonContainer to={`/comic/${id}`} as={Link}>
+            COMPRE
+        </ButtonContainer>
+    )
 }
 
 export default Button

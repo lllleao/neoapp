@@ -1,30 +1,30 @@
 import Button from '../Button'
-import { CardContainer, Tag, TextCard } from './styles'
-import star from '../../assets/star.png'
+import TagRate from '../TagRate'
+import { CardContainer, TextCard } from './styles'
 
 type CardProps = {
     photo: string
     title: string
+    id?: number
+    isSpecificComic?: boolean
+    description?: string
 }
 
-const Card = ({ photo, title }: CardProps) => {
+const Card = ({
+    photo,
+    title,
+    id,
+    isSpecificComic,
+    description
+}: CardProps) => {
     return (
         <>
             <CardContainer>
                 <img className="banner" srcSet={photo} alt="comic" />
                 <TextCard as="h3">{title}</TextCard>
-                <TextCard>
-                    Uma história em quadrinhos de tirar o fôlego. Conheça e se
-                    impressione!
-                </TextCard>
-                <div className="tag-star">
-                    <Tag>Raro</Tag>
-                    <div className="rate">
-                        <span>4.3</span>
-                        <img srcSet={star} alt="star" />
-                    </div>
-                </div>
-                <Button />
+                <TextCard>{description}</TextCard>
+                <TagRate />
+                {isSpecificComic ? <></> : <Button id={id as number} />}
             </CardContainer>
         </>
     )

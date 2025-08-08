@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 export const HeaderBar = styled.header<{ $url: string }>`
-    position: relative;
-    width: 100%;
+    position: fixed;
     top: 0;
+    width: 100%;
     background-image: ${({ $url }) => `url(${$url})`};
     background-position: center;
     background-size: cover;

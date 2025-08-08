@@ -34,10 +34,4 @@ export const TextCard = styled.p`
     margin: 0.5rem 0 1rem;
     text-align: center;
 `
-export const Tag = styled.span`
-    display: inline-block;
-    font-weight: bold;
-    background-color: #4f14e3;
-    padding: 0.3rem 0.7rem;
-    /* margin-bottom: 1rem; */
-`
+

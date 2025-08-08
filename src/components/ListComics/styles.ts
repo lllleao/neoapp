@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import { ButtonContainer } from '../Button/styles'
 
-export const ListComicsContainer = styled.section`
-    padding-top: 3rem;
+export const ListComicsContainer = styled.section<{$headerHeight: number}>`
+    padding-top: ${({$headerHeight}) => $headerHeight}px;
     .comics-title {
         text-align: center;
         margin-bottom: 2rem;

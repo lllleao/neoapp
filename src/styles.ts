@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
     * {
@@ -17,6 +17,12 @@ const GlobalStyle = createGlobalStyle`
         max-width: 1024px;
         width: 90%;
         margin: 0 auto;
+    }
+
+    .flex-center-between {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 `
 
