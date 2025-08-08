@@ -9,6 +9,10 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Roboto', sans-serif;
     }
 
+    body {
+        color: #fff;
+    }
+
     .container {
         max-width: 1024px;
         width: 90%;

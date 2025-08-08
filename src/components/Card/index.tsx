@@ -1,4 +1,6 @@
+import Button from '../Button'
 import { CardContainer, Tag, TextCard } from './styles'
+import star from '../../assets/star.png'
 
 type CardProps = {
     photo: string
@@ -15,7 +17,14 @@ const Card = ({ photo, title }: CardProps) => {
                     Uma história em quadrinhos de tirar o fôlego. Conheça e se
                     impressione!
                 </TextCard>
-                <Tag>Raro</Tag>
+                <div className="tag-star">
+                    <Tag>Raro</Tag>
+                    <div className="rate">
+                        <span>4.3</span>
+                        <img srcSet={star} alt="star" />
+                    </div>
+                </div>
+                <Button />
             </CardContainer>
         </>
     )
