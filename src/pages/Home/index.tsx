@@ -1,7 +1,7 @@
-import Hero from "../../components/Hero"
+import ListComics from "../../components/ListComics"
 
 const Home = () => {
-    return <Hero />
+    return <ListComics />
 }
 
 export default Home
