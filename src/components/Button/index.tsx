@@ -8,7 +8,7 @@ type ButtonProps = {
 const Button = ({ id }: ButtonProps) => {
     return (
         <ButtonContainer to={`/comic/${id}`} as={Link}>
-            COMPRE
+            BUY NOW
         </ButtonContainer>
     )
 }

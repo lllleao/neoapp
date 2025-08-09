@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useGetComicsToHeroQuery } from '../../service/api'
-import { constructLink, changePage, constuctDescription } from '../../utils'
+import { constructLink, changePage, constructDescription, priceFormat } from '../../utils'
 import Card from '../Card'
 import { ButtonPage, ListComicsContainer } from './styles'
 import { useSelector } from 'react-redux'
@@ -14,13 +14,14 @@ const ListComics = () => {
     const { height } = useSelector((state: RootReducer) => state.headerHeight)
 
     useEffect(() => {
+        console.log(data)
         if (!isFetching) {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             })
         }
-    }, [isFetching])
+    }, [isFetching, data])
 
     return (
         <ListComicsContainer id="home" $headerHeight={height + 100}>
@@ -32,13 +33,14 @@ const ListComics = () => {
                             // Tive que fazer esse filtro, pois alguns itens não possuem fotos.
                             data.data.results
                                 .filter(({ images }) => images[0])
-                                .map(({ id, images, title }, index) => (
+                                .map(({ id, images, title, prices }, index) => (
                                     <Card
                                         title={title}
                                         key={id}
                                         id={id}
-                                        description={constuctDescription(data, index)}
+                                        description={constructDescription(data, index)}
                                         photo={constructLink(images)}
+                                        price={priceFormat(String(prices[0].price))}
                                     />
                                 ))
                         }

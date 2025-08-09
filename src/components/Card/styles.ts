@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const CardContainer = styled.article`
+    position: relative;
+    z-index: 1;
     padding: 1rem;
     padding-bottom: 2rem;
     margin-bottom: 2rem;
@@ -14,18 +16,8 @@ export const CardContainer = styled.article`
         border: 2px solid #eee;
     }
 
-    .tag-star, .rate {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .tag-star {
-        margin-bottom: 1rem;
-    }
-    .rate {
-        span {
-            margin-right: 0.5rem;
-        }
+    .flex-center-between {
+        margin: 1.2rem 0;
     }
 `
 export const TextCard = styled.p`
@@ -34,4 +26,7 @@ export const TextCard = styled.p`
     margin: 0.5rem 0 1rem;
     text-align: center;
 `
-
+export const Price = styled.span`
+    font-weight: bold;
+    font-size: 1.6rem;
+`

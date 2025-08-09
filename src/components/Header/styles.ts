@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const HeaderBar = styled.header<{ $url: string }>`
     position: fixed;
+    z-index: 2;
     top: 0;
     width: 100%;
     background-image: ${({ $url }) => `url(${$url})`};

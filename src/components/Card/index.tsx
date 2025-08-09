@@ -1,6 +1,7 @@
 import Button from '../Button'
-import TagRate from '../TagRate'
-import { CardContainer, TextCard } from './styles'
+import Rate from '../Rate'
+import Tag from '../Tag'
+import { CardContainer, Price, TextCard } from './styles'
 
 type CardProps = {
     photo: string
@@ -8,6 +9,7 @@ type CardProps = {
     id?: number
     isSpecificComic?: boolean
     description?: string
+    price: string
 }
 
 const Card = ({
@@ -15,7 +17,8 @@ const Card = ({
     title,
     id,
     isSpecificComic,
-    description
+    description,
+    price
 }: CardProps) => {
     return (
         <>
@@ -23,7 +26,11 @@ const Card = ({
                 <img className="banner" srcSet={photo} alt="comic" />
                 <TextCard as="h3">{title}</TextCard>
                 <TextCard>{description}</TextCard>
-                <TagRate />
+                <Rate />
+                <div className="flex-center-between mb-0">
+                    <Tag />
+                    <Price>{price}</Price>
+                </div>
                 {isSpecificComic ? <></> : <Button id={id as number} />}
             </CardContainer>
         </>
