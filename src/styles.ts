@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         color: #fff;
+        background-color: #1a1a1a;
     }
 
     .container {

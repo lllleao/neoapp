@@ -12,6 +12,9 @@ export type Comic = {
                 }[]
             textObjects: {
                 text: string
+            }[],
+            prices: {
+                price: number
             }[]
         }[]
         total: number

@@ -4,10 +4,11 @@ type ComicDetailsProps = {
     photo: string
     title: string
     description: string
+    price: string
 }
 
-const ComicDetails = ({ photo, title, description }: ComicDetailsProps) => {
-    return <Card description={description} isSpecificComic photo={photo} title={title} />
+const ComicDetails = ({ photo, title, description, price }: ComicDetailsProps) => {
+    return <Card price={price} description={description} isSpecificComic photo={photo} title={title} />
 }
 
 export default ComicDetails

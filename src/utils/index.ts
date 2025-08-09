@@ -22,19 +22,26 @@ export const changePage = (
     setPage((p) => p + 1)
 }
 
-export const constuctDescription = (data: Comic, index: number) => {
-    const desc = data.data.results[index].textObjects[0]
+export const constructDescription = (data: Comic, index: number, isOne?: boolean) => {
+    const descFilter = data.data.results.filter(({images}) => images[0])
+    const desc = descFilter[index].textObjects[0]
 
     if (!desc)
-        return 'Uma história em quadrinhos de tirar o fôlego. Conheça e se impressione!'
+        return 'A breathtaking comic book. Discover it and be impressed!'
 
     const removeBr = desc.text
         .replace(/<br\s*\/?>/gi, ' ')
         .replace(/\s+/g, ' ')
         .trim()
     let removeAdditionalInfo = desc.text.slice(0, removeBr.indexOf('Plus'))
-    if (removeAdditionalInfo.length <= 200) return removeAdditionalInfo
+
+    if (removeAdditionalInfo.length <= 200 || isOne) return removeAdditionalInfo
     removeAdditionalInfo = removeAdditionalInfo.slice(0, 200)
     console.log(removeAdditionalInfo.trim())
     return removeAdditionalInfo.trim() + '...'
+}
+
+export const priceFormat = (price: string) => {
+    if (price === '0') return '$ 3,99'
+    return '$ ' + price.replace('.', ',')
 }
