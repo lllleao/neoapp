@@ -7,11 +7,12 @@ export const RateContainer = styled.div`
     position: absolute;
     top: 0.5rem;
     left: 0.5rem;
+    margin: 0;
     span {
         margin-right: 0.5rem;
     }
 
-    &.m-0 {
+    &.flex-center-between {
         margin: 0;
     }
 `

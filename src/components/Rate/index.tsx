@@ -3,7 +3,7 @@ import { RateContainer } from './styles'
 
 const Rate = () => {
     return (
-        <RateContainer className="flex-center-between m-0">
+        <RateContainer className="flex-center-between">
             <span>4.3</span>
             <img srcSet={star} alt="star" />
         </RateContainer>

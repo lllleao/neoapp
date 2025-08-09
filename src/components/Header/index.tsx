@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import overlayImageHeader from '../../assets/overlayHeader2.webp'
 import { useDispatch } from 'react-redux'
 import { changeHeight } from '../../store/reducers/headerHeight'
+import Menu from '../Menu'
+import { openMenu } from '../../store/reducers/cart'
 
 const Header = () => {
     const [activeWrapper, setActiveWrapper] = useState(false)
@@ -18,6 +20,11 @@ const Header = () => {
         dispatch(changeHeight({height}))
     }, [dispatch])
 
+    const handleWrapper = () => {
+        setActiveWrapper(!activeWrapper)
+        dispatch(openMenu({isMenuOpen: !activeWrapper}))
+    }
+
     return (
         <S.HeaderBar ref={headerBarRef} $url={overlayImageHeader}>
             <div className="container">
@@ -28,7 +35,7 @@ const Header = () => {
                     </Link>
                 </h1>
                 <S.MenuBurguerWrapper
-                    onClick={() => setActiveWrapper(!activeWrapper)}
+                    onClick={handleWrapper}
                     className={activeWrapper ? 'wrapper-bar__is-active' : ''}
                 >
                     <li className="wrapper-bar" />
@@ -36,6 +43,7 @@ const Header = () => {
                     <li className="wrapper-bar" />
                 </S.MenuBurguerWrapper>
             </div>
+            <Menu />
             <S.OverlayHeader />
         </S.HeaderBar>
     )
