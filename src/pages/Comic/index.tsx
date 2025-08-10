@@ -1,4 +1,4 @@
-import OneComic from '../../container/OneComic'
+import OneComic from '@/container/OneComic'
 
 const Comic = () => {
     return <OneComic />

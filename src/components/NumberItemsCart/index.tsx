@@ -9,7 +9,10 @@ const NumberItemsCart = ({
     isNumberVisible
 }: NumberItemsCartProps) => {
     return (
-        <NumberItemCartContainer $isNumberVisible={isNumberVisible}>
+        <NumberItemCartContainer
+            className="cart-count"
+            $isNumberVisible={isNumberVisible}
+        >
             {itemsOnCart}
         </NumberItemCartContainer>
     )

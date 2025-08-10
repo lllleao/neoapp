@@ -1,10 +1,10 @@
 import { BrowserRouter } from 'react-router-dom'
-import Header from './components/Header'
-import GlobalStyle from './styles'
-import Rotas from './routes'
 import { Provider } from 'react-redux'
-import store from './store'
-import Footer from './components/Footer'
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
+import Rotas from './routes'
+import GlobalStyle from './styles'
+import store from '@/store'
 
 function App() {
     return (

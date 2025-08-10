@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import type { ItemToCart } from '../../types'
+import type { ItemToCart } from '@/types'
 
 type CartState = {
     isMenuOpen: boolean

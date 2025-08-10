@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux'
-import ListComics from '../../components/ListComics'
-import type { RootReducer } from '../../store'
-import Card from '../../components/Card'
-import TotalPrice from '../../components/TotalPrice'
-import { sumTot } from '../../utils'
+import ListComics from '@/components/ListComics'
+import Card from '@/components/Card'
+import TotalPrice from '@/components/TotalPrice'
+import type { RootReducer } from '@/store'
+import { sumTot } from '@/utils'
 
 const CartComics = () => {
     const { height } = useSelector((state: RootReducer) => state.headerHeight)

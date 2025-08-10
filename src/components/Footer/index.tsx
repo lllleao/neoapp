@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import type { RootReducer } from '../../store'
+import type { RootReducer } from '@/store'
 import { FooterContainer } from './styles'
 
 const Footer = () => {

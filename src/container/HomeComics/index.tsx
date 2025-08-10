@@ -1,19 +1,19 @@
 import { useEffect, useState } from 'react'
-import { ButtonPage, ButtonsPageContainer } from './styles'
-import { useGetComicsToHeroQuery } from '../../service/api'
+import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
-import type { RootReducer } from '../../store'
+import Card from '@/components/Card'
+import ListComics from '@/components/ListComics'
+import ImageHero from '@/components/ImageHero'
+import { useGetComicsToHeroQuery } from '@/service/api'
+import type { RootReducer } from '@/store'
+import { addCopyRight } from '@/store/reducers/utilsInfo'
 import {
     changePage,
     constructDescription,
     constructLink,
     priceFormat
-} from '../../utils'
-import Card from '../../components/Card'
-import ListComics from '../../components/ListComics'
-import ImageHero from '../../components/ImageHero'
-import { useDispatch } from 'react-redux'
-import { addCopyRight } from '../../store/reducers/utilsInfo'
+} from '@/utils'
+import { ButtonPage, ButtonsPageContainer } from './styles'
 
 const HomeComics = () => {
     const [offSet, setOffSet] = useState(0)

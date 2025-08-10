@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 import headerHeightReducer from './reducers/utilsInfo'
 import cartReducer from './reducers/cart'
-import api from '../service/api'
+import api from '@/service/api'
 
 const store = configureStore({
     reducer: {
