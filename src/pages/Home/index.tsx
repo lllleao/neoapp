@@ -1,7 +1,7 @@
-import ListComics from "../../components/ListComics"
+import HomeComics from '../../container/HomeComics'
 
 const Home = () => {
-    return <ListComics />
+    return <HomeComics />
 }
 
 export default Home

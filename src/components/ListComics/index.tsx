@@ -1,83 +1,23 @@
-import { useEffect, useState } from 'react'
-import { useGetComicsToHeroQuery } from '../../service/api'
-import { constructLink, changePage, constructDescription, priceFormat } from '../../utils'
-import Card from '../Card'
-import { ButtonPage, ListComicsContainer } from './styles'
-import { useSelector } from 'react-redux'
-import type { RootReducer } from '../../store'
+import type { JSX } from 'react'
+import { ListComicsContainer } from './styles'
 
-const ListComics = () => {
-    const [offSet, setOffSet] = useState(0)
-    const [page, setPage] = useState(1)
-    const limit = 10
-    const { data, isFetching } = useGetComicsToHeroQuery({ limit, offSet })
-    const { height } = useSelector((state: RootReducer) => state.headerHeight)
-
-    useEffect(() => {
-        console.log(data)
-        if (!isFetching) {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            })
-        }
-    }, [isFetching, data])
-
+type ListComicsProps = {
+    children: JSX.Element
+    heightHeader: number
+    idSection: string
+    titleSection: string
+}
+const ListComics = ({
+    children,
+    heightHeader,
+    idSection,
+    titleSection
+}: ListComicsProps) => {
     return (
-        <ListComicsContainer id="home" $headerHeight={height + 100}>
+        <ListComicsContainer id={idSection} $headerHeight={heightHeader + 50}>
             <div className="container">
-                <h2 className="comics-title">MARVEL&apos;S COMICS</h2>
-                {data ? (
-                    <>
-                        {
-                            // Tive que fazer esse filtro, pois alguns itens não possuem fotos.
-                            data.data.results
-                                .filter(({ images }) => images[0])
-                                .map(({ id, images, title, prices }, index) => (
-                                    <Card
-                                        title={title}
-                                        key={id}
-                                        id={id}
-                                        description={constructDescription(data, index)}
-                                        photo={constructLink(images)}
-                                        price={priceFormat(String(prices[0].price))}
-                                    />
-                                ))
-                        }
-                        <div className="buttons-page">
-                            <ButtonPage
-                                onClick={() =>
-                                    changePage(setOffSet, setPage, limit, false)
-                                }
-                                disabled={page === 1 || isFetching}
-                                className={
-                                    page === 1 || isFetching ? 'disabled' : ''
-                                }
-                            >
-                                Previous
-                            </ButtonPage>
-                            <ButtonPage
-                                onClick={() =>
-                                    changePage(setOffSet, setPage, limit, true)
-                                }
-                                disabled={
-                                    page * limit >= data?.data.total ||
-                                    isFetching
-                                }
-                                className={
-                                    page * limit >= data?.data.total ||
-                                    isFetching
-                                        ? 'disabled'
-                                        : ''
-                                }
-                            >
-                                Next
-                            </ButtonPage>
-                        </div>
-                    </>
-                ) : (
-                    <></>
-                )}
+                <h2 className="title">{titleSection}</h2>
+                {children}
             </div>
         </ListComicsContainer>
     )

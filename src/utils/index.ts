@@ -1,4 +1,4 @@
-import type { Comic } from '../types'
+import type { Comic, ItemToCart } from '../types'
 
 export const constructLink = (
     images: { path: string; extension: string }[]
@@ -22,12 +22,15 @@ export const changePage = (
     setPage((p) => p + 1)
 }
 
-export const constructDescription = (data: Comic, index: number, isOne?: boolean) => {
-    const descFilter = data.data.results.filter(({images}) => images[0])
+export const constructDescription = (
+    data: Comic,
+    index: number,
+    isOne?: boolean
+) => {
+    const descFilter = data.data.results.filter(({ images }) => images[0])
     const desc = descFilter[index].textObjects[0]
 
-    if (!desc)
-        return 'A breathtaking comic book. Discover it and be impressed!'
+    if (!desc) return 'A breathtaking comic book. Discover it and be impressed!'
 
     const removeBr = desc.text
         .replace(/<br\s*\/?>/gi, ' ')
@@ -44,4 +47,11 @@ export const constructDescription = (data: Comic, index: number, isOne?: boolean
 export const priceFormat = (price: string) => {
     if (price === '0') return '$ 3,99'
     return '$ ' + price.replace('.', ',')
+}
+
+export const sumTot = (items: ItemToCart[]) => {
+    if (!items || items.length === 0) return 0
+    return items.reduce((acum, currentItem) => {
+        return (acum += currentItem.price)
+    }, 0)
 }

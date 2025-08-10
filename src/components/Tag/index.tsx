@@ -1,4 +1,4 @@
-import { TagName } from "./styles"
+import { TagName } from './styles'
 
 const Tag = () => {
     return (

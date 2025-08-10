@@ -1,7 +1,9 @@
+import { useDispatch } from 'react-redux'
 import Button from '../Button'
 import Rate from '../Rate'
 import Tag from '../Tag'
 import { CardContainer, Price, TextCard } from './styles'
+import { removeItemFromCart } from '../../store/reducers/cart'
 
 type CardProps = {
     photo: string
@@ -10,6 +12,7 @@ type CardProps = {
     isSpecificComic?: boolean
     description?: string
     price: string
+    isOnCart?: boolean
 }
 
 const Card = ({
@@ -18,8 +21,13 @@ const Card = ({
     id,
     isSpecificComic,
     description,
-    price
+    price,
+    isOnCart
 }: CardProps) => {
+    const dispatch = useDispatch()
+    const handleDeleteItem = () => {
+        dispatch(removeItemFromCart(id as number))
+    }
     return (
         <>
             <CardContainer>
@@ -27,8 +35,16 @@ const Card = ({
                 <TextCard as="h3">{title}</TextCard>
                 <TextCard>{description}</TextCard>
                 <Rate />
-                <div className="flex-center-between mb-0">
+                <div className="flex-center-between margin-top-bottom">
                     <Tag />
+                    {isOnCart ? (
+                        <i
+                            onClick={handleDeleteItem}
+                            className="fa-solid fa-trash trash-ion"
+                        />
+                    ) : (
+                        <></>
+                    )}
                     <Price>{price}</Price>
                 </div>
                 {isSpecificComic ? <></> : <Button id={id as number} />}

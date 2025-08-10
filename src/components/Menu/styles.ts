@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const MenuMob = styled.ul`
     position: fixed;
@@ -30,17 +30,14 @@ export const MenuMob = styled.ul`
         justify-content: space-between;
 
         .number-items-mob {
-            display: none;
-            background-color: red;
+            margin-left: 0.5rem;
             width: 20px;
             height: 20px;
+            background-color: red;
             border-radius: 50px;
             font-size: 1.05rem;
             font-weight: bold;
             text-align: center;
-            &--visible {
-                display: block;
-            }
         }
     }
 

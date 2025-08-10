@@ -21,7 +21,14 @@ export type Comic = {
     }
 }
 
-export type PaginationProps = {
+export type Pagination = {
     limit: number
     offSet: number
+}
+
+export type ItemToCart = {
+    id: number
+    title: string,
+    price: number
+    image: string
 }

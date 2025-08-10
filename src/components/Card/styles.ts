@@ -16,8 +16,14 @@ export const CardContainer = styled.article`
         border: 2px solid #eee;
     }
 
-    .flex-center-between {
+    .margin-top-bottom {
         margin: 1.2rem 0;
+    }
+
+    .trash-ion {
+        font-size: 2rem;
+        cursor: pointer;
+        padding: 8px;
     }
 `
 export const TextCard = styled.p`

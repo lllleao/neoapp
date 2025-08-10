@@ -8,4 +8,3 @@ export const TagName = styled.span`
     border: 2px solid #fff;
     border-radius: 0.6rem;
 `
-

@@ -15,7 +15,7 @@ const headerHeightSlice = createSlice({
         changeHeight: (state, action: PayloadAction<HeaderHeightState>) => {
             const newHeight = action.payload.height
             state.height = newHeight
-        },
+        }
     }
 })
 
