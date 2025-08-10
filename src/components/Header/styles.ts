@@ -1,13 +1,11 @@
 import styled from 'styled-components'
 
-export const HeaderBar = styled.header<{ $url: string }>`
-    position: fixed;
+export const HeaderBar = styled.header<{ $isHome: boolean }>`
+    position: absolute;
+    background-color: #83010300;
     z-index: 2;
     top: 0;
     width: 100%;
-    background-image: ${({ $url }) => `url(${$url})`};
-    background-position: center;
-    background-size: cover;
 
     .container {
         display: flex;
@@ -15,7 +13,6 @@ export const HeaderBar = styled.header<{ $url: string }>`
         align-items: center;
         padding: 1rem 0;
         .title-logo {
-            z-index: 1;
             .visually-hidden {
                 position: absolute;
                 width: 1px;
@@ -27,23 +24,31 @@ export const HeaderBar = styled.header<{ $url: string }>`
             }
         }
         .logo {
-            z-index: 1;
             width: 100px;
         }
     }
+    @media screen and (min-width: 768px) {
+        position: ${({ $isHome }) => ($isHome ? 'fixed' : 'static')};
+        display: flex;
+        justify-content: space-between;
+    }
 `
 export const MenuBurguerWrapper = styled.ul`
-    z-index: 1;
-
+    position: fixed;
+    top: 23px;
+    right: 18px;
+    z-index: 2;
     width: 32px;
     .wrapper-bar {
         height: 4px;
         display: block;
         width: 100%;
         background-color: #fff;
-        margin-bottom: 6px;
         border-radius: 1rem;
         transition: transform 0.2s linear;
+        &:nth-child(2) {
+            margin: 6px 0;
+        }
     }
     &.wrapper-bar__is-active {
         .wrapper-bar {
@@ -57,6 +62,9 @@ export const MenuBurguerWrapper = styled.ul`
                 transform: rotate(45deg) translate(-6px, -6px);
             }
         }
+    }
+    @media screen and (min-width: 768px) {
+        display: none;
     }
 `
 export const OverlayHeader = styled.div`

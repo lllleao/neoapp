@@ -48,16 +48,18 @@ const OneComic = () => {
         console.log(oneComicData.price)
     }
     return (
-        <OneComicContainer $headerHeight={height} id="comics">
+        <OneComicContainer $headerHeight={height + 50} id="comics">
             <div className="container">
                 {data && oneComicData ? (
-                    <Card
-                        isSpecificComic
-                        description={constructDescription(data, 0, true)}
-                        title={oneComicData.title}
-                        photo={oneComicData.image}
-                        price={priceFormat(String(oneComicData.price))}
-                    />
+                    <div className="one-comic-card">
+                        <Card
+                            isSpecificComic
+                            description={constructDescription(data, 0, true)}
+                            title={oneComicData.title}
+                            photo={oneComicData.image}
+                            price={priceFormat(String(oneComicData.price))}
+                        />
+                    </div>
                 ) : (
                     <></>
                 )}

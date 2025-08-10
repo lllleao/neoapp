@@ -4,6 +4,7 @@ import Rate from '../Rate'
 import Tag from '../Tag'
 import { CardContainer, Price, TextCard } from './styles'
 import { removeItemFromCart } from '../../store/reducers/cart'
+import { Link } from 'react-router-dom'
 
 type CardProps = {
     photo: string
@@ -31,8 +32,16 @@ const Card = ({
     return (
         <>
             <CardContainer>
-                <img className="banner" srcSet={photo} alt="comic" />
-                <TextCard as="h3">{title}</TextCard>
+                {isSpecificComic ? (
+                    <img className="banner" srcSet={photo} alt="comic" />
+                ) : (
+                    <Link to={`/comic/${id}`}>
+                        <img className="banner" srcSet={photo} alt="comic" />
+                    </Link>
+                )}
+                <TextCard className="title-comic" as="h3">
+                    {title}
+                </TextCard>
                 <TextCard>{description}</TextCard>
                 <Rate />
                 <div className="flex-center-between margin-top-bottom">
@@ -47,7 +56,11 @@ const Card = ({
                     )}
                     <Price>{price}</Price>
                 </div>
-                {isSpecificComic ? <></> : <Button id={id as number} />}
+                {isSpecificComic || isOnCart ? (
+                    <></>
+                ) : (
+                    <Button id={id as number} />
+                )}
             </CardContainer>
         </>
     )

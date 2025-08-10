@@ -6,9 +6,8 @@ export const CardContainer = styled.article`
     padding: 1rem;
     padding-bottom: 2rem;
     margin-bottom: 2rem;
-    background-color: #222;
     border-radius: 1rem;
-    box-shadow: -8px 0px 9px #000;
+    box-shadow: -2px 3px 9px #757575;
     max-width: 400px;
     .banner {
         text-align: center;
@@ -30,7 +29,13 @@ export const TextCard = styled.p`
     font-size: 1rem;
     line-height: 1.5rem;
     margin: 0.5rem 0 1rem;
-    text-align: center;
+    text-align: justify;
+
+    &.title-comic {
+        margin-top: 1rem;
+        /* margin-top: 1rem;
+        font-size: 1.5rem; */
+    }
 `
 export const Price = styled.span`
     font-weight: bold;

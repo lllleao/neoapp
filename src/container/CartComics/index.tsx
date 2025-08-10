@@ -8,26 +8,26 @@ import { sumTot } from '../../utils'
 const CartComics = () => {
     const { height } = useSelector((state: RootReducer) => state.headerHeight)
     const { items } = useSelector((state: RootReducer) => state.cart)
-    // console.log(items[0].price)
     return (
         <ListComics
-            heightHeader={height}
+            heightHeader={height + 50}
             idSection="cart"
             titleSection="SHOPPING CART"
         >
             {items[0] ? (
                 <>
-                    {items.map(({ image, id, price, title }) => (
-                        <Card
-                            photo={image}
-                            price={'$ ' + String(price).replace('.', ',')}
-                            title={title}
-                            isSpecificComic
-                            isOnCart
-                            id={id}
-                            key={id}
-                        />
-                    ))}
+                    <div className="align-cards-cart">
+                        {items.map(({ image, id, price, title }) => (
+                            <Card
+                                photo={image}
+                                price={'$ ' + String(price).replace('.', ',')}
+                                title={title}
+                                isOnCart
+                                id={id}
+                                key={id}
+                            />
+                        ))}
+                    </div>
                     <TotalPrice>
                         {String(sumTot(items)).replace('.', ',')}
                     </TotalPrice>

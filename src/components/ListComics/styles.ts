@@ -1,37 +1,47 @@
 import styled from 'styled-components'
+import { CardContainer } from '../Card/styles'
 
 export const ListComicsContainer = styled.section<{ $headerHeight: number }>`
     padding-top: ${({ $headerHeight }) => $headerHeight}px;
+
     .title {
-        text-align: center;
         margin-bottom: 2rem;
-        font-size: 2.5rem;
-        color: red;
+        text-align: center;
+        font-size: clamp(2rem, 5vw, 2.6rem);
+        font-family: 'Marvel', sans-serif;
+        color: #eee;
         text-shadow:
-            -1px -1px 0 #000,
-            1px -1px 0 #000,
-            -1px 1px 0 #000,
-            1px 1px 0 #000;
+            -1px -1px 5px #f51414ff,
+            1px -1px 0 #f51414ff,
+            -1px 1px 0 #f51414ff,
+            1px 1px 0 #f51414ff;
     }
 
     .container {
-        .buttons-page {
+        .align-cards-cart {
             display: flex;
-            justify-content: space-between;
-            width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            ${CardContainer} {
+                flex: 0 1 300px;
+            }
         }
     }
-
-    .align-cards {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        @media screen and (min-width: 768px) {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 colunas iguais */
-            gap: 3rem;
-            place-items: center;
+    // Home
+    @media screen and (min-width: 768px) {
+        padding-bottom: 3rem;
+        &.mt-vh {
+            background-color: #000;
+            margin-top: 100vh;
+            position: relative;
+            z-index: 3;
+            padding-top: 30px;
+        }
+        .title {
+            letter-spacing: 0.6rem;
+            margin-bottom: 3rem;
         }
     }
 `

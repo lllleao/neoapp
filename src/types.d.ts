@@ -1,4 +1,5 @@
 export type Comic = {
+    attributionText: string
     data: {
         results: {
             id: number
@@ -7,12 +8,12 @@ export type Comic = {
                 items: { name: string }[]
             }
             images: {
-                    path: string
-                    extension: string
-                }[]
+                path: string
+                extension: string
+            }[]
             textObjects: {
                 text: string
-            }[],
+            }[]
             prices: {
                 price: number
             }[]
@@ -28,7 +29,7 @@ export type Pagination = {
 
 export type ItemToCart = {
     id: number
-    title: string,
+    title: string
     price: number
     image: string
 }

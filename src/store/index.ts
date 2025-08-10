@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import headerHeightReducer from './reducers/headerHeight'
+import headerHeightReducer from './reducers/utilsInfo'
 import cartReducer from './reducers/cart'
 import api from '../service/api'
 

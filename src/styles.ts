@@ -11,12 +11,12 @@ const GlobalStyle = createGlobalStyle`
 
     body {
         color: #fff;
-        background-color: #1a1a1a;
+        background-color: #000;
     }
 
     .container {
         max-width: 1024px;
-        width: 90%;
+        width: 80%;
         margin: 0 auto;
     }
 
@@ -24,6 +24,19 @@ const GlobalStyle = createGlobalStyle`
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+
+     .align-cards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        @media screen and (min-width: 768px) {
+            display: grid;
+            grid-template-columns: repeat(2, 0.5fr);
+            gap: 3rem;
+            place-items: center;
+        }
     }
 `
 

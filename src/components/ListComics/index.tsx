@@ -6,15 +6,21 @@ type ListComicsProps = {
     heightHeader: number
     idSection: string
     titleSection: string
+    isHero?: boolean
 }
 const ListComics = ({
     children,
     heightHeader,
     idSection,
-    titleSection
+    titleSection,
+    isHero
 }: ListComicsProps) => {
     return (
-        <ListComicsContainer id={idSection} $headerHeight={heightHeader + 50}>
+        <ListComicsContainer
+            className={isHero ? 'mt-vh pt-0' : ''}
+            id={idSection}
+            $headerHeight={heightHeader}
+        >
             <div className="container">
                 <h2 className="title">{titleSection}</h2>
                 {children}

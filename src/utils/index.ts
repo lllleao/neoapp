@@ -40,7 +40,6 @@ export const constructDescription = (
 
     if (removeAdditionalInfo.length <= 200 || isOne) return removeAdditionalInfo
     removeAdditionalInfo = removeAdditionalInfo.slice(0, 200)
-    console.log(removeAdditionalInfo.trim())
     return removeAdditionalInfo.trim() + '...'
 }
 

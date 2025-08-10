@@ -1,10 +1,23 @@
 import styled from 'styled-components'
 import { ButtonContainer } from '../../components/Button/styles'
+import { CardContainer } from '../../components/Card/styles'
 
 export const OneComicContainer = styled.section<{ $headerHeight: number }>`
     padding-top: ${({ $headerHeight }) => $headerHeight}px;
+    padding-bottom: 3rem;
     .margin-top-bottom {
         margin-bottom: 0;
+    }
+
+    .one-comic-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @media screen and (min-width: 768px) {
+            ${CardContainer} {
+                max-width: 500px;
+            }
+        }
     }
 `
 export const ButtonAddToCart = styled(ButtonContainer)<{
@@ -18,6 +31,13 @@ export const ButtonAddToCart = styled(ButtonContainer)<{
     &:focus {
         background-color: ${({ $isDisabled }) =>
             $isDisabled ? '#505050ff' : '#6d33ffff'};
+    }
+
+    @media screen and (min-width: 768px) {
+        display: block;
+        margin: 0 auto;
+        max-width: 200px;
+        width: 100%;
     }
 `
 export const Creator = styled.p`

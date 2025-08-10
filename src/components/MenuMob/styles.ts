@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-export const MenuMob = styled.ul`
+export const MenuMobContainer = styled.ul`
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 20px;
     right: 20px;
     background-color: #222;
@@ -28,17 +28,6 @@ export const MenuMob = styled.ul`
     .menu-item__cart {
         display: flex;
         justify-content: space-between;
-
-        .number-items-mob {
-            margin-left: 0.5rem;
-            width: 20px;
-            height: 20px;
-            background-color: red;
-            border-radius: 50px;
-            font-size: 1.05rem;
-            font-weight: bold;
-            text-align: center;
-        }
     }
 
     &.menu-is-active {
@@ -49,7 +38,7 @@ export const MenuMob = styled.ul`
         color: #fff;
     }
 
-    @media (min-width: 1055px) {
+    @media (min-width: 768px) {
         display: none;
     }
 `
