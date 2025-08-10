@@ -1,4 +1,4 @@
-import CartComics from '../../container/CartComics'
+import CartComics from '@/container/CartComics'
 
 const Cart = () => {
     return <CartComics />

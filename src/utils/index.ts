@@ -1,4 +1,4 @@
-import type { Comic, ItemToCart } from '../types'
+import type { Comic, ItemToCart } from '@/types'
 
 export const constructLink = (
     images: { path: string; extension: string }[]

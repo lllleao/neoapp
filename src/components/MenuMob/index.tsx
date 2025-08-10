@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 import { HashLink } from 'react-router-hash-link'
-import { MenuMobContainer } from './styles'
 import { useSelector } from 'react-redux'
-import type { RootReducer } from '../../store'
-import NumberItemsCart from '../NumberItemsCart/inex'
-import useCheckVisibility from '../../hooks/useCheckVisibility'
+import NumberItemsCart from '@/components/NumberItemsCart'
+import type { RootReducer } from '@/store'
+import useCheckVisibility from '@/hooks/useCheckVisibility'
+import { MenuMobContainer } from './styles'
 
 type MenuMobtProps = {
     itemsOnCart: number

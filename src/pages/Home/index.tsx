@@ -1,4 +1,4 @@
-import HomeComics from '../../container/HomeComics'
+import HomeComics from '@/container/HomeComics'
 
 const Home = () => {
     return <HomeComics />

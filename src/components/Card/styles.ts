@@ -19,7 +19,7 @@ export const CardContainer = styled.article`
         margin: 1.2rem 0;
     }
 
-    .trash-ion {
+    .trash-icon {
         font-size: 2rem;
         cursor: pointer;
         padding: 8px;

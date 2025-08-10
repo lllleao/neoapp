@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux'
-import Button from '../Button'
-import Rate from '../Rate'
-import Tag from '../Tag'
-import { CardContainer, Price, TextCard } from './styles'
-import { removeItemFromCart } from '../../store/reducers/cart'
 import { Link } from 'react-router-dom'
+import { removeItemFromCart } from '@/store/reducers/cart'
+import Button from '@/components/Button'
+import Rate from '@/components/Rate'
+import Tag from '@/components/Tag'
+import { CardContainer, Price, TextCard } from './styles'
 
 type CardProps = {
     photo: string
@@ -49,7 +49,7 @@ const Card = ({
                     {isOnCart ? (
                         <i
                             onClick={handleDeleteItem}
-                            className="fa-solid fa-trash trash-ion"
+                            className="fa-solid fa-trash trash-icon"
                         />
                     ) : (
                         <></>

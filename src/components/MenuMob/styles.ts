@@ -32,7 +32,6 @@ export const MenuMobContainer = styled.ul`
 
     &.menu-is-active {
         -webkit-transform: translate(-50px, 10px);
-        display: block;
         transform: translate(0, 52px);
         opacity: 1;
         color: #fff;

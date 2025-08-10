@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { CardContainer } from '../Card/styles'
+import { CardContainer } from '@/components/Card/styles'
 
 export const ListComicsContainer = styled.section<{ $headerHeight: number }>`
     padding-top: ${({ $headerHeight }) => $headerHeight}px;

@@ -1,8 +1,8 @@
 import { HashLink } from 'react-router-hash-link'
-import { MenuDesktopContainer } from './styles'
-import NumberItemsCart from '../NumberItemsCart/inex'
 import { useEffect } from 'react'
-import useCheckVisibility from '../../hooks/useCheckVisibility'
+import NumberItemsCart from '@/components/NumberItemsCart'
+import useCheckVisibility from '@/hooks/useCheckVisibility'
+import { MenuDesktopContainer } from './styles'
 
 type MenuDesktopProps = {
     itemsOnCart: number
