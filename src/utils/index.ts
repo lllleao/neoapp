@@ -5,7 +5,7 @@ export const constructLink = (
 ) => {
     const { path } = images[0]
     const { extension } = images[0]
-    return path + '.' + extension
+    return path.replace('http', 'https') + '.' + extension
 }
 
 export const changePage = (
