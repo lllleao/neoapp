@@ -6,12 +6,13 @@ import ListComics from '@/components/ListComics'
 import ImageHero from '@/components/ImageHero'
 import { useGetComicsToHeroQuery } from '@/service/api'
 import type { RootReducer } from '@/store'
-import { addCopyRight } from '@/store/reducers/utilsInfo'
+import { addCopyRight, addIsRare } from '@/store/reducers/utilsInfo'
 import {
     changePage,
     constructDescription,
     constructLink,
-    priceFormat
+    priceFormat,
+    rareComid
 } from '@/utils'
 import { ButtonPage, ButtonsPageContainer } from './styles'
 
@@ -21,21 +22,21 @@ const HomeComics = () => {
     const dispatch = useDispatch()
     const limit = 10
     const { data, isFetching } = useGetComicsToHeroQuery({ limit, offSet })
-    const { height } = useSelector((state: RootReducer) => state.headerHeight)
+    const { height } = useSelector((state: RootReducer) => state.utilsInfo)
 
     useEffect(() => {
-        console.log(data)
         if (!isFetching) {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             })
         }
-    }, [isFetching, data])
+    }, [isFetching])
 
     useEffect(() => {
         if (!data) return
         dispatch(addCopyRight(data.attributionText))
+        dispatch(addIsRare(rareComid(data)))
     }, [data, dispatch])
 
     return (

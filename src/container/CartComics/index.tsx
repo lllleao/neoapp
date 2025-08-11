@@ -6,8 +6,9 @@ import type { RootReducer } from '@/store'
 import { sumTot } from '@/utils'
 
 const CartComics = () => {
-    const { height } = useSelector((state: RootReducer) => state.headerHeight)
+    const { height } = useSelector((state: RootReducer) => state.utilsInfo)
     const { items } = useSelector((state: RootReducer) => state.cart)
+
     return (
         <ListComics
             heightHeader={height + 50}

@@ -10,9 +10,6 @@ type MenuDesktopProps = {
 const MenuDesktop = ({ itemsOnCart }: MenuDesktopProps) => {
     const { isNumberVisible } = useCheckVisibility(itemsOnCart)
 
-    useEffect(() => {
-        console.log(isNumberVisible)
-    }, [isNumberVisible])
     return (
         <MenuDesktopContainer className="flex-center-between">
             <li>

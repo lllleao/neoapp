@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useGetOneComicQuery } from '../../service/api'
 import { useParams } from 'react-router-dom'
-import type { ItemToCart } from '../../types'
 import { useEffect, useState } from 'react'
-import { constructDescription, constructLink, priceFormat } from '../../utils'
-import { addToCart } from '../../store/reducers/cart'
+import Card from '@/components/Card'
+import type { ItemToCart } from '@/types'
+import type { RootReducer } from '@/store'
+import { useGetOneComicQuery } from '@/service/api'
+import { addToCart } from '@/store/reducers/cart'
+import { constructDescription, constructLink, priceFormat } from '@/utils'
 import { ButtonAddToCart, OneComicContainer, Creator } from './styles'
-import type { RootReducer } from '../../store'
-import Card from '../../components/Card'
 
 interface OneComic extends ItemToCart {
     creator: string | undefined
@@ -18,19 +18,20 @@ const OneComic = () => {
     const { data } = useGetOneComicQuery(id as string)
     const [oneComicData, setOneComicData] = useState<OneComic>()
     const dispatch = useDispatch()
-    const { height } = useSelector((state: RootReducer) => state.headerHeight)
+    const { height } = useSelector((state: RootReducer) => state.utilsInfo)
 
     useEffect(() => {
         if (!data) return
         if (!id) return
 
-        console.log(data)
         setOneComicData({
             id: Number(id),
             image: constructLink(data.data.results[0].images),
             price: data.data.results[0].prices[0].price,
             title: data.data.results[0].title,
-            creator: data.data.results[0].creators.items[0].name
+            creator: data.data.results[0].creators.items[0]
+                ? data.data.results[0].creators.items[0].name
+                : 'Unknow author'
         })
     }, [data, id])
 
@@ -45,7 +46,6 @@ const OneComic = () => {
                 title: oneComicData.title
             })
         )
-        console.log(oneComicData.price)
     }
     return (
         <OneComicContainer $headerHeight={height + 50} id="comics">
@@ -66,7 +66,7 @@ const OneComic = () => {
                 <Creator>
                     Created for:{' '}
                     <span className="creator-name">
-                        {oneComicData?.creator || 'Unknow author'}
+                        {oneComicData?.creator}
                     </span>
                 </Creator>
                 <ButtonAddToCart

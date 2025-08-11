@@ -54,3 +54,11 @@ export const sumTot = (items: ItemToCart[]) => {
         return (acum += currentItem.price)
     }, 0)
 }
+
+export const rareComid = (data: Comic) => {
+    // O limite das comics na home é de no máximo dez, então sempre terá apenas uma comic rara
+    const descFilter = data.data.results.filter(({ images }) => images[0])
+    const randomNum = Math.floor(Math.random() * (descFilter.length + 1))
+    const corretctIndex = randomNum - 1 < 0 ? 0 : randomNum
+    return descFilter[corretctIndex].title
+}

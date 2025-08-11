@@ -3,9 +3,7 @@ import type { RootReducer } from '@/store'
 import { FooterContainer } from './styles'
 
 const Footer = () => {
-    const { copyRight } = useSelector(
-        (state: RootReducer) => state.headerHeight
-    )
+    const { copyRight } = useSelector((state: RootReducer) => state.utilsInfo)
     return (
         <FooterContainer>
             <div className="container">

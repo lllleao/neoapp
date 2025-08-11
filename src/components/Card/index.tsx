@@ -5,6 +5,8 @@ import Button from '@/components/Button'
 import Rate from '@/components/Rate'
 import Tag from '@/components/Tag'
 import { CardContainer, Price, TextCard } from './styles'
+import { useSelector } from 'react-redux'
+import type { RootReducer } from '@/store'
 
 type CardProps = {
     photo: string
@@ -25,6 +27,7 @@ const Card = ({
     price,
     isOnCart
 }: CardProps) => {
+    const { isRare } = useSelector((state: RootReducer) => state.utilsInfo)
     const dispatch = useDispatch()
     const handleDeleteItem = () => {
         dispatch(removeItemFromCart(id as number))
@@ -45,7 +48,7 @@ const Card = ({
                 <TextCard>{description}</TextCard>
                 <Rate />
                 <div className="flex-center-between margin-top-bottom">
-                    <Tag />
+                    {isRare === title ? <Tag /> : <></>}
                     {isOnCart ? (
                         <i
                             onClick={handleDeleteItem}
