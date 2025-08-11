@@ -1,5 +1,4 @@
 import { HashLink } from 'react-router-hash-link'
-import { useEffect } from 'react'
 import NumberItemsCart from '@/components/NumberItemsCart'
 import useCheckVisibility from '@/hooks/useCheckVisibility'
 import { MenuDesktopContainer } from './styles'
