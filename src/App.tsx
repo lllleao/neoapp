@@ -12,7 +12,9 @@ function App() {
             <BrowserRouter>
                 <GlobalStyle />
                 <Header />
-                <Rotas />
+                <main>
+                    <Rotas />
+                </main>
                 <Footer />
             </BrowserRouter>
         </Provider>
