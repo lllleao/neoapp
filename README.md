@@ -1,4 +1,4 @@
-# 🦸‍♂️ Neo App - SPA de Quadrinhos da Marvel
+# 🦸‍♂️ [Neo App - SPA de Quadrinhos da Marvel](https://neoapp-one.vercel.app/)
 
 Uma Single Page Application (SPA) que consome dados da API da Marvel para exibir quadrinhos, permitindo que o usuário veja detalhes de cada um e gerencie um carrinho de compras.  
 Desenvolvido com **React + TypeScript + Vite** e testado com **Cypress**.
@@ -44,3 +44,4 @@ git clone https://github.com/lllleao/neoapp
 cd neo-app
 npm install
 npm run dev
+
